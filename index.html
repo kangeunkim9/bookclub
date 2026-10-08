@@ -74,6 +74,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .bar.has span{background:var(--lamp)}
 .bar em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 .hist-axis{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;color:var(--muted);margin-top:6px}
+.facts{margin:0;display:grid;gap:12px}
+.facts div{display:flex;justify-content:space-between;gap:12px;font-size:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 .rec{display:grid;gap:10px}
 .rec-row{display:flex;justify-content:space-between;gap:10px;font-size:14px}
 .rec-row b{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
@@ -267,8 +271,12 @@ a.book .status{background:var(--lamp-soft);color:var(--ink);font-weight:600}
       <div class="hist-axis"><span>½★</span><span>5★</span></div>
     </div>
     <div>
-      <p class="label">Would you recommend it?</p>
-      <div class="rec" id="rec"></div>
+      <p class="label">This meeting</p>
+      <dl class="facts">
+        <div><dt>Met on</dt><dd>Tue, Oct 6, 2026</dd></div>
+        <div><dt>Commentaries</dt><dd id="f-count"></dd></div>
+        <div><dt>Ratings</dt><dd id="f-range"></dd></div>
+      </dl>
     </div>
   </section>
 
@@ -371,12 +379,10 @@ document.getElementById('hist').innerHTML=buckets.map((b,i)=>{
   return `<div class="bar${c?' has':''}" title="${b}★ · ${c}"><em>${c||''}</em><span style="height:${c?Math.round(c/max*70):0}px"></span></div>`;
 }).join('');
 
-// recommend
-const yes=R.filter(r=>r.rec==='yes').length, cond=R.length-yes;
-document.getElementById('rec').innerHTML=`
-  <div class="rec-row"><span>Yes</span><b>${yes}</b></div>
-  <div class="rec-row"><span>Only with background knowledge</span><b>${cond}</b></div>
-  <div class="rec-track" aria-hidden="true"><span style="width:${yes/R.length*100}%"></span></div>`;
+// meeting facts
+document.getElementById('f-count').textContent=R.length;
+const rs=R.map(r=>r.rating);
+document.getElementById('f-range').textContent=Math.min(...rs)+' to '+Math.max(...rs)+' stars';
 
 // chips
 let active=null, sort='default';
