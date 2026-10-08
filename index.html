@@ -420,7 +420,6 @@ function render(){
       </div>
       <div class="foot">
         <div class="tags">${r.tags.map(t=>`<span class="tag">${THEMES[t]}</span>`).join('')}</div>
-        <span class="verdict${r.rec==='cond'?' cond':''}">${r.rec==='cond'?'Only with background':'Recommends'}</span>
       </div>
     </article>`).join('');
 }
