@@ -65,7 +65,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 .star i::before{content:"★"}
 
 /* summary row */
-.summary{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;padding-block:26px;border-bottom:1px solid var(--line)}
+.summary{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;padding-block:26px;border-bottom:1px solid var(--line)}
 .summary > *{min-width:0}
 .label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600}
 .hist{display:flex;align-items:flex-end;gap:5px;height:92px}
@@ -266,17 +266,17 @@ a.book .status{background:var(--lamp-soft);color:var(--ink);font-weight:600}
 
   <section class="summary">
     <div>
-      <p class="label">Ratings</p>
-      <div class="hist" id="hist"></div>
-      <div class="hist-axis"><span>½★</span><span>5★</span></div>
-    </div>
-    <div>
       <p class="label">This meeting</p>
       <dl class="facts">
         <div><dt>Met on</dt><dd>Tue, Oct 6, 2026</dd></div>
         <div><dt>Commentaries</dt><dd id="f-count"></dd></div>
         <div><dt>Ratings</dt><dd id="f-range"></dd></div>
       </dl>
+    </div>
+    <div>
+      <p class="label">Ratings</p>
+      <div class="hist" id="hist"></div>
+      <div class="hist-axis"><span>½★</span><span>5★</span></div>
     </div>
   </section>
 
