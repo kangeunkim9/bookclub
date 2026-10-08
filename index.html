@@ -100,7 +100,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:1
 /* review cards */
 .list{display:grid;gap:12px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
-.card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.card-head{display:flex;justify-content:space-between;gap:6px 12px;align-items:center;flex-wrap:wrap}
 .who{min-width:0}
 .name{font-weight:600;font-size:15px}
 .from{font-size:12.5px;color:var(--muted)}
@@ -311,7 +311,7 @@ const R = [
    thought:"I thought the way alienation + isolation are conveyed not only by the characters but also by the writing was very well done. There is a sense of nothingness that is somehow still very atmospheric.",
    recText:"Yes! But you will have to do some research or have to read an in-depth introduction to really be able to grasp it. But I think it is quiet good to understand with background knowledge, at least I felt that way.",
    tags:["lonely","mood","context"]},
-  {name:"Czech Republic", from:"Exchange student", rating:4, rec:"yes",
+  {name:"Czech Republic", from:"", rating:4, rec:"yes",
    thought:"I really enjoyed the work, because it shows the strangeness and inability to make a real connection, which is a very compelling problem in today's society. Deep human pain is overlooked and found as bothersome.",
    recText:"Yes, I think the novel shows the feeling of loneliness of human experience and can say a deep message even now.",
    tags:["lonely","today"]},
@@ -411,8 +411,8 @@ function render(){
   list.innerHTML=rows.map(r=>`
     <article class="card">
       <div class="card-head">
-        <div class="who"><div class="name">A reader from ${esc(r.name)}</div><div class="from">${esc(r.from)}</div></div>
         <div class="rate">${starsHTML(r.rating)}<span class="num">${r.rating}</span></div>
+        <div class="from">${esc(r.name)}${r.from?' · '+esc(r.from):''}</div>
       </div>
       <div class="body">
         <div><h4>What did you think of it?</h4><p>${esc(r.thought)}</p></div>
