@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Concerning My Daughter · Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF7EE; --card:#FFFDF8; --ink:#1F2E48; --slate:#4A5468;
+  --mute:#8A8578; --line:#D8D2C4; --accent:#CE5B35; --gold:#C9A227;
+  --field:#CBD2DC;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  line-height:1.6; padding:0 16px 64px;
+}
+.wrap{max-width:720px;margin:0 auto}
+
+.rail{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);
+  border-bottom:1.5px solid var(--line);padding:26px 0 12px;
+}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:800;
+  font-size:clamp(28px,6vw,40px);line-height:1.1;margin-top:26px;letter-spacing:-.01em}
+.kr{font-size:clamp(15px,3.4vw,18px);color:var(--slate);margin-top:8px}
+.credit{font-size:13px;color:#6E7689;font-style:italic;margin-top:6px}
+
+.intro{background:#F7F2E7;border-radius:8px;padding:16px 18px;margin-top:22px;font-size:14.5px;color:#3C465A}
+.intro b{font-weight:700}
+
+form{margin-top:30px}
+.field{margin-top:26px}
+.lab{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.lab .req{color:var(--accent)}
+.hint{font-size:13px;color:var(--mute);margin-bottom:9px;line-height:1.5}
+
+input[type=text], textarea{
+  width:100%;background:var(--card);border:1.5px solid var(--field);border-radius:6px;
+  padding:13px 14px;font:inherit;font-size:16px;color:var(--ink);
+  transition:border-color .15s, box-shadow .15s;
+}
+input[type=text]{padding:12px 14px}
+textarea{resize:vertical;line-height:1.65}
+textarea.tall{min-height:190px}
+textarea.mid{min-height:140px}
+textarea.short{min-height:92px}
+input[type=text]:focus, textarea:focus{
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(206,91,53,.13)
+}
+input.bad, textarea.bad{border-color:#C0392B;background:#FFF7F6}
+
+.stars{display:flex;gap:4px;align-items:center;margin-top:2px}
+.star{background:none;border:none;padding:4px 2px;cursor:pointer;line-height:1;
+  font-size:34px;color:#D8D2C4;transition:color .12s, transform .08s}
+.star:hover{transform:translateY(-2px)}
+.star.on{color:var(--gold)}
+.star:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.starnote{font-size:13px;color:var(--mute);margin-left:10px;min-height:1em}
+
+.actions{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+button.send{
+  background:var(--ink);color:#FFFDF8;border:none;border-radius:6px;
+  padding:14px 30px;font:inherit;font-size:15px;font-weight:700;letter-spacing:.02em;cursor:pointer;
+  transition:background .15s}
+button.send:hover{background:#2C3F60}
+button.send:disabled{opacity:.55;cursor:default}
+.err{font-size:13.5px;color:#C0392B}
+
+.foot{margin-top:42px;border-top:1.5px solid var(--line);padding-top:14px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:12px;color:var(--mute)}
+.foot a{color:var(--mute)}
+
+.done{display:none;margin-top:40px;background:var(--card);border:1.5px solid var(--line);
+  border-radius:8px;padding:30px 26px;text-align:center}
+.done h2{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:800}
+.done p{margin-top:12px;font-size:14.5px;color:var(--slate)}
+.done .again{margin-top:20px;font-size:14px}
+.done .again a{color:var(--accent);font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
+body.sent form, body.sent .intro{display:none}
+body.sent .done{display:block}
+
+@media (max-width:480px){
+  .rail{font-size:10px;letter-spacing:.12em}
+  .star{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="rail">
+    <span>Korean Literature Book Club</span>
+    <span>Tue 17 Nov · 6 PM</span>
+  </div>
+
+  <h1>Concerning My Daughter</h1>
+  <div class="kr">김혜진, 『딸에 대하여』 (2017)</div>
+  <div class="credit">Translated by Jamie Chang</div>
+
+  <div class="intro">
+    Write your review before we meet. <b>Nobody else sees what you write until after the meeting</b>, so put down what you actually thought. Any language is fine, and it does not have to be good.
+  </div>
+
+  <form id="f" novalidate>
+    <div class="field">
+      <label class="lab" for="name">Your name or nickname <span class="req">*</span></label>
+      <input type="text" id="name" autocomplete="name">
+    </div>
+
+    <div class="field">
+      <span class="lab">Rating <span class="req">*</span></span>
+      <div class="hint">Circle as many as you like. It is fine if yours is nothing like anyone else's.</div>
+      <div class="stars" id="stars" role="radiogroup" aria-label="Rating out of five">
+        <button type="button" class="star" data-v="1" role="radio" aria-checked="false" aria-label="1 star">&#9733;</button>
+        <button type="button" class="star" data-v="2" role="radio" aria-checked="false" aria-label="2 stars">&#9733;</button>
+        <button type="button" class="star" data-v="3" role="radio" aria-checked="false" aria-label="3 stars">&#9733;</button>
+        <button type="button" class="star" data-v="4" role="radio" aria-checked="false" aria-label="4 stars">&#9733;</button>
+        <button type="button" class="star" data-v="5" role="radio" aria-checked="false" aria-label="5 stars">&#9733;</button>
+        <span class="starnote" id="starnote"></span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="lab" for="think">What did you think of it? <span class="req">*</span></label>
+      <div class="hint">A few sentences is plenty. Write more if you want to.</div>
+      <textarea id="think" class="tall"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="lab" for="rec">Would you recommend it?</label>
+      <div class="hint">Who would you give it to, and what would you say to them about it?</div>
+      <textarea id="rec" class="mid"></textarea>
+    </div>
+
+    <div class="field">
+      <label class="lab" for="ask">Anything you want to bring up at the meeting?</label>
+      <div class="hint">A question, a passage you did not understand, something you want to argue about.</div>
+      <textarea id="ask" class="short"></textarea>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="send" id="send">Submit</button>
+      <span class="err" id="err"></span>
+    </div>
+  </form>
+
+  <div class="done" id="done">
+    <h2>Thank you</h2>
+    <p>We will read everyone's reviews together at the meeting.<br>See you Tuesday at 6.</p>
+    <div class="again"><a href="#" id="again">Write another one</a></div>
+  </div>
+
+  <div class="foot">
+    <span>Korean Literature Book Club · Sungkyunkwan University</span>
+    <span><a href="mailto:pinktokki@skku.edu">pinktokki@skku.edu</a></span>
+  </div>
+
+</div>
+<script>
+(function(){
+  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSdKBEnq8Q6E3NCD_Ye4Z68VMrsNK3abvRh_t5nTNqEozMjRVA/formResponse";
+  var ENTRY = {
+    name:  "entry.1982841156",
+    rating:"entry.401551400",
+    think: "entry.1085240493",
+    rec:   "entry.427924549",
+    ask:   "entry.1354890007"
+  };
+  var WORDS = ["", "Not for me", "It was okay", "Good", "Really good", "Loved it"];
+
+  var rating = 0;
+  var starEls = [].slice.call(document.querySelectorAll('.star'));
+  var note = document.getElementById('starnote');
+
+  function paint(n){
+    starEls.forEach(function(s){
+      var v = +s.dataset.v;
+      s.classList.toggle('on', v <= n);
+      s.setAttribute('aria-checked', v === rating ? 'true' : 'false');
+    });
+    note.textContent = WORDS[n] || "";
+  }
+  starEls.forEach(function(s){
+    s.addEventListener('click', function(){
+      rating = +s.dataset.v; paint(rating);
+    });
+    s.addEventListener('mouseenter', function(){ paint(+s.dataset.v); });
+  });
+  document.getElementById('stars').addEventListener('mouseleave', function(){ paint(rating); });
+
+  var f = document.getElementById('f');
+  var err = document.getElementById('err');
+  var send = document.getElementById('send');
+
+  function val(id){ return document.getElementById(id).value.trim(); }
+  function flag(id, on){ document.getElementById(id).classList.toggle('bad', on); }
+
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var missing = [];
+    flag('name', !val('name'));   if(!val('name'))  missing.push('your name');
+    flag('think', !val('think')); if(!val('think')) missing.push('what you thought');
+    if(!rating) missing.push('a rating');
+    if(missing.length){
+      err.textContent = "Still need " + missing.join(", ") + ".";
+      return;
+    }
+    err.textContent = "";
+    send.disabled = true; send.textContent = "Sending...";
+
+    var fd = new FormData();
+    fd.append(ENTRY.name,   val('name'));
+    fd.append(ENTRY.rating, String(rating));
+    fd.append(ENTRY.think,  val('think'));
+    fd.append(ENTRY.rec,    val('rec'));
+    fd.append(ENTRY.ask,    val('ask'));
+
+    var done = false;
+    function finish(){
+      if(done) return; done = true;
+      document.body.classList.add('sent');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    fetch(FORM, { method:'POST', mode:'no-cors', body: fd }).then(finish).catch(finish);
+    setTimeout(finish, 2500);
+  });
+
+  document.getElementById('again').addEventListener('click', function(e){
+    e.preventDefault();
+    f.reset(); rating = 0; paint(0);
+    send.disabled = false; send.textContent = "Submit";
+    document.body.classList.remove('sent');
+    window.scrollTo({top:0});
+  });
+})();
+</script>
+</body>
+</html>
